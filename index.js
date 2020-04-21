@@ -13,7 +13,7 @@
  * Example of usage of this higher-order function:
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
-*/
+ */
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
@@ -38,7 +38,7 @@ function processFirstItem(stringList, callback) {
  * 
  * Scenario 1 would be preferable if you wanted to create multiple counters using the same function. Scenario 2 would be preferable if you wanted to access the variable "count" in other places within the global scope (outside the scope of the function).
  *
-*/
+ */
 
 // counter1 code
 function counterMaker() {
@@ -62,10 +62,10 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning() {
 
-   let score = Math.round(Math.random()*2);
-   return score;
+  let score = Math.round(Math.random() * 2);
+  return score;
 
 }
 console.log(inning());
@@ -82,14 +82,21 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(cb, num) {
+  let homeScore = 0;
+  let awayScore = 0;
+  const score = {};
+  for (let i = 0; i < num; i++) {
+    homeScore = homeScore + cb();
+    awayScore = awayScore + cb();
+    }
+    score['Home'] = homeScore;
+    score['Away']= awayScore;
+    return score;
 }
-
+console.log(finalScore(inning, 9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -112,8 +119,6 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard( /* CODE HERE */ ) {
   /* CODE HERE */
 }
-
-
