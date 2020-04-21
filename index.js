@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter 1 is a nested function with the variable declared in the parent function, while counter 2 accesses a variable from the global scope.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * They both use closure because they have to reach outside of the called function to get the value of count.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * Scenario 1 would be preferable if you wanted to create multiple counters using the same function. Scenario 2 would be preferable if you wanted to access the variable "count" in other places within the global scope (outside the scope of the function).
  *
 */
 
@@ -38,7 +44,7 @@ function processFirstItem(stringList, callback) {
 function counterMaker() {
   let count = 0;
   return function counter() {
-    count++;
+    return count++;
   }
 }
 
@@ -58,9 +64,11 @@ Write a function called `inning` that generates a random number of points that a
 
 function inning(/*Code Here*/){
 
-    /*Code Here*/
+   let score = Math.round(Math.random()*2);
+   return score;
 
 }
+console.log(inning());
 
 /* Task 3: finalScore()
 

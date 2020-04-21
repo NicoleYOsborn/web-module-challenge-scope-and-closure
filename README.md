@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+When calling a function, it will always look for the needed information w/in the scope of that function, but if it doesn't find it, it will access information outside of the function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Where the anonymous function uses the "name" from the personalDice function. Because "name" is not givin a value within the anonymous function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+It will always pass "Dan" as "name" but newRoll will change because it gets defined w/in the anonymous function.
+
 c. What is the lexical scope of `newRoll`? 
+
+Only the information w/in the curly brackets of taht function.
 
 ### Task 3 - Stretch Goals
 
