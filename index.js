@@ -91,10 +91,10 @@ function finalScore(cb, num) {
   for (let i = 0; i < num; i++) {
     homeScore = homeScore + cb();
     awayScore = awayScore + cb();
-    }
-    score['Home'] = homeScore;
-    score['Away']= awayScore;
-    return score;
+  }
+  score['Home'] = homeScore;
+  score['Away'] = awayScore;
+  return score;
 }
 console.log(finalScore(inning, 9));
 /* Task 4: 
@@ -119,6 +119,42 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard( /* CODE HERE */ ) {
-  /* CODE HERE */
+function getInningScore(num) {
+  return {
+    home: inning(),
+    away: inning()
+  };
+};
+
+function scoreboard(getInnings, inning, number) {
+  let homeTeam = 0;
+  let awayTeam = 0;
+  let results = [];
+
+  for (let i = 0; i <= number; i++) {
+    const currentInnings = getInningScore(inning);
+    homeTeam += currentInnings.home;
+    awayTeam += currentInnings.away;
+    if(i<number){
+    results.push(`${i+1}st inning: ${currentInnings.away} - ${currentInnings.home}`);
+    }
+    else {
+      results.push(`Final Score: ${awayTeam-2} - ${homeTeam-2}`)
+    }
+  }
+  return results;
 }
+console.log(scoreboard(getInningScore, inning, 9));
+
+// function scoreboard(inScores, score, num) {
+//   /* create array of 9 scores for away team, and one for home team
+//       for loop to log score for each inning
+//       use .reduce to get final scores. CODE HERE */
+//   getInningScore(num);
+//   for(let i=0; i<num; i++ ){
+//     console.log `${i} inning: `${awayTeamScores[i]} - ${homeTeamScores[i]}
+//   }
+//   console.log( awayTeamScores.reduce)
+// }
+
+// scoreboard(getInningScore, inning, 9);
